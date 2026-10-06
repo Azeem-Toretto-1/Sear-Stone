@@ -1,0 +1,939 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="Discover premium cuts, gourmet dishes and a culinary experience designed for true meat lovers."
+    />
+    <meta name="robots" content="index, follow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--=============== FAVICON ===============-->
+    <link
+      rel="shortcut icon"
+      href="assets/img/favicon.png"
+      type="image/x-icon"
+    />
+
+    <!--=============== REMIXICONS ===============-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css"
+    />
+
+    <!--=============== CSS ===============-->
+    <link rel="stylesheet" href="assets/css/styles.css" />
+
+    <title>Steakhouse Restaurant</title>
+  </head>
+  <body>
+    <!--==================== PAGE LOADER ====================-->
+    <div class="page_loader" id="page-loader" aria-hidden="true">
+      <div class="loader_content">
+        <span class="loader_logo">Steakhouse</span>
+        <div class="loader_spinner">
+          <div class="loader_ring"></div>
+          <i class="ri-fire-fill loader_icon"></i>
+        </div>
+        <span class="loader_text">Fine Dining & Grill</span>
+      </div>
+    </div>
+
+    <!--==================== SCROLL PROGRESS ====================-->
+    <div class="scroll_progress" id="scroll-progress" aria-hidden="true"></div>
+
+    <!--==================== HEADER & NAV ====================-->
+    <header class="header" id="header">
+      <nav class="nav container">
+        <a href="index.html" class="nav_logo">Steakhouse</a>
+
+        <div class="nav_menu" id="nav-menu">
+          <ul class="nav_list">
+            <li>
+              <a href="#home" class="nav_link active-link">Home</a>
+            </li>
+
+            <li>
+              <a href="#about" class="nav_link">About Us</a>
+            </li>
+
+            <li>
+              <a href="#menu" class="nav_link">Menu</a>
+            </li>
+
+            <li>
+              <a href="#events" class="nav_link">Events</a>
+            </li>
+
+            <li>
+              <a href="#testimonials" class="nav_link">Reviews</a>
+            </li>
+
+            <li>
+              <a href="#contact" class="nav_link">Contact</a>
+            </li>
+
+            <li>
+              <a href="#reservation" class="nav_link">Reservation</a>
+            </li>
+          </ul>
+
+          <!-- Close -->
+          <button class="nav_close" id="nav-close" aria-label="Close menu">
+            <i class="ri-close-large-line"></i>
+          </button>
+        </div>
+
+        <!-- Header Actions: Theme, Cart, Toggle -->
+        <div class="nav_actions">
+          <button
+            class="nav_action_btn"
+            id="theme-button"
+            aria-label="Toggle dark/light theme"
+            title="Toggle theme"
+          >
+            <i class="ri-sun-line" id="theme-icon"></i>
+          </button>
+
+          <button
+            class="nav_action_btn nav_cart_btn"
+            id="cart-button"
+            aria-label="View shopping cart"
+            title="Open cart"
+          >
+            <i class="ri-shopping-bag-3-line"></i>
+            <span class="cart_badge" id="cart-count">0</span>
+          </button>
+
+          <!-- Mobile Toggle -->
+          <button class="nav_toggle" id="nav-toggle" aria-label="Toggle menu">
+            <i class="ri-menu-line"></i>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <!--==================== MAIN ====================-->
+    <main class="main">
+      <!--==================== HOME SECTION ====================-->
+      <section class="home section" id="home">
+        <div class="home_container container grid">
+          <div class="home_data">
+            <h1 class="home_title">
+              A Premium <br />
+              And Authentic <br />
+              Steakhouse
+            </h1>
+
+            <a href="#reservation" class="home_button button" id="home-book-btn">Book a Table</a>
+          </div>
+
+          <div class="home_images">
+            <img
+              src="./assets/img/home-salt.png"
+              alt="Grilled steak and fresh vegetables"
+              class="home_salt-2"
+            />
+            <img
+              src="./assets/img/home-salt.png"
+              alt="Grilled steak and fresh vegetables"
+              class="home_salt-1"
+            />
+            <img
+              src="./assets/img/home-pepper.png"
+              alt="Grilled steak and fresh vegetables"
+              class="home_pepper"
+            />
+            <img
+              src="./assets/img/home-tomato.png"
+              alt="Grilled steak and fresh vegetables"
+              class="home_tomato"
+            />
+            <img
+              src="./assets/img/home-rosemary-1.png"
+              alt="Grilled steak and fresh vegetables"
+              class="home_rosemary-1"
+            />
+            <img
+              src="./assets/img/home-onion.png"
+              alt="Grilled steak and fresh vegetables"
+              class="home_onion"
+            />
+            <img
+              src="./assets/img/home-spoon.png"
+              alt="Grilled steak and fresh vegetables"
+              class="home_spoon"
+            />
+            <img
+              src="./assets/img/home-rosemary-2.png"
+              alt="Grilled steak and fresh vegetables"
+              class="home_rosemary-2"
+            />
+            <img
+              src="./assets/img/home-frying-pan.png"
+              alt="Grilled steak and fresh vegetables"
+              class="home_fryingpan"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!--==================== ABOUT SECTION ====================-->
+      <section class="about section" id="about">
+        <div class="about_container container grid">
+          <img
+            src="./assets/img/about-flour.png"
+            alt="About-flour-Image"
+            class="about_flour"
+          />
+          <img
+            src="./assets/img/about-img.png"
+            alt="Premium meat grill"
+            class="about_img"
+          />
+
+          <div class="about_data">
+            <span class="section_subtitle">Discover</span>
+            <h2 class="section_title">Our Story</h2>
+
+            <p class="about_description">
+              Enjoy the finest experience at our steakhouse. Whether you're
+              visiting us for a romantic dinner, a business meeting, a private
+              party, or simply for a drink at the bar, our steakhouse in Lima
+              will provide you with exceptional service and an unforgettable
+              dining experience.
+            </p>
+
+            <a href="#menu" class="button_link">
+              Discover our menu
+              <i class="ri-arrow-right-long-line"></i>
+            </a>
+
+            <img
+              src="./assets/img/about-rosemary.png"
+              alt="About-Rosemary-Image"
+              class="about_rosemary"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!--==================== MENU SECTION ====================-->
+      <section class="menu section" id="menu">
+        <div class="menu_container container grid">
+          <div class="menu_header">
+            <div>
+              <span class="section_subtitle">Discover</span>
+              <h2 class="section_title">Our Menu</h2>
+            </div>
+
+            <p class="menu_description">
+              Few things compare to the pleasure of a good steak and fries,
+              simply cooked with care and attention. Rest assured that our chefs
+              treat our meat with the respect it deserves for the best quality.
+              The open kitchen in many of our steakhouses is proof of this.
+            </p>
+          </div>
+
+          <div class="menu_content">
+            <!-- DISH 1: Bruschetta -->
+            <article class="menu_card" data-dish-id="1" tabindex="0" role="button" aria-label="View Bruschetta details">
+              <div class="menu_images">
+                <img
+                  src="./assets/img/menu-dish-1.png"
+                  alt="Bruschetta"
+                  class="menu_dish-1"
+                />
+                <img
+                  src="./assets/img/menu-rosemary.png"
+                  alt="Menu-Rosemary-Image"
+                  class="menu_rosemary"
+                />
+                <img
+                  src="./assets/img/menu-flour.png"
+                  alt="Menu-Flour-Image"
+                  class="menu_flour-1"
+                />
+              </div>
+
+              <div class="menu_info">
+                <h3 class="menu_name">Bruschetta</h3>
+                <p class="menu_summary">
+                  Start with our fresh baked bread with an egg and basil on top.
+                </p>
+                <div class="menu_meta">
+                  <span class="menu_price">$14.00</span>
+                  <button type="button" class="menu_action button_link" data-dish-id="1" aria-label="Order Bruschetta">
+                    Order Now <i class="ri-arrow-right-line"></i>
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <!-- DISH 2: Main Dish / Steak -->
+            <article class="menu_card" data-dish-id="2" tabindex="0" role="button" aria-label="View Main Dish details">
+              <div class="menu_images">
+                <img
+                  src="./assets/img/menu-dish-2.png"
+                  alt="Prime Ribeye Steak"
+                  class="menu_dish-2"
+                />
+                <img
+                  src="./assets/img/menu-flour.png"
+                  alt="Menu-Flour-Image"
+                  class="menu_flour-2"
+                />
+                <img
+                  src="./assets/img/menu-pepper.png"
+                  alt="Menu-Pepper-Image"
+                  class="menu_pepper"
+                />
+              </div>
+
+              <div class="menu_info">
+                <h3 class="menu_name">Main Dish</h3>
+                <p class="menu_summary">
+                  Our juicy, freshly grilled steak is served to satisfy your
+                  appetite.
+                </p>
+                <div class="menu_meta">
+                  <span class="menu_price">$38.00</span>
+                  <button type="button" class="menu_action button_link" data-dish-id="2" aria-label="Customize Main Dish">
+                    Customize <i class="ri-arrow-right-line"></i>
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <!-- DISH 3: Salad Dish -->
+            <article class="menu_card" data-dish-id="3" tabindex="0" role="button" aria-label="View Salad Dish details">
+              <div class="menu_images">
+                <img
+                  src="./assets/img/menu-dish-3.png"
+                  alt="Salad Dish"
+                  class="menu_dish-3"
+                />
+                <img
+                  src="./assets/img/menu-flour.png"
+                  alt="Menu-Flour-Image"
+                  class="menu_flour-3"
+                />
+                <img
+                  src="./assets/img/menu-tomato.png"
+                  alt="Menu-Rosemary-Image"
+                  class="menu_tomato"
+                />
+              </div>
+
+              <div class="menu_info">
+                <h3 class="menu_name">Salad Dish</h3>
+                <p class="menu_summary">
+                  Accompany your steak with a healthy salad mixed with sliced
+                  lean meat.
+                </p>
+                <div class="menu_meta">
+                  <span class="menu_price">$18.00</span>
+                  <button type="button" class="menu_action button_link" data-dish-id="3" aria-label="Order Salad Dish">
+                    Order Now <i class="ri-arrow-right-line"></i>
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <!-- DISH 4: Dessert -->
+            <article class="menu_card" data-dish-id="4" tabindex="0" role="button" aria-label="View Dessert details">
+              <div class="menu_images">
+                <img
+                  src="./assets/img/menu-dish-4.png"
+                  alt="Dessert"
+                  class="menu_dish-4"
+                />
+                <img
+                  src="./assets/img/menu-flour.png"
+                  alt="Menu-Flour-Image"
+                  class="menu_flour-4"
+                />
+              </div>
+
+              <div class="menu_info">
+                <h3 class="menu_name">Dessert</h3>
+                <p class="menu_summary">
+                  End your culinary experience with a cake to cleanse your
+                  palate.
+                </p>
+                <div class="menu_meta">
+                  <span class="menu_price">$12.00</span>
+                  <button type="button" class="menu_action button_link" data-dish-id="4" aria-label="Order Dessert">
+                    Order Now <i class="ri-arrow-right-line"></i>
+                  </button>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!--==================== EVENTS SECTION ====================-->
+      <section class="events section" id="events">
+        <div class="events_container container grid">
+          <img
+            src="./assets/img/event-flour.png"
+            alt="Events_Flour_Image"
+            class="events_flour"
+          />
+          <img
+            src="./assets/img/event-img.png"
+            alt="People enjoying a meal at a restaurant"
+            class="events_img"
+          />
+
+          <div class="events_data">
+            <span class="section_subtitle">Discover</span>
+            <h2 class="section_title">Upcoming Events</h2>
+
+            <p class="events_description">
+              Not only will you be able to taste the best steak in town, but you
+              can also meet up with your old friends while enjoying the food we
+              offer.
+            </p>
+
+            <div class="events_info">
+              <h3 class="events_name">Barbecue Party</h3>
+              <p class="events_details">October 26, 2026 - Lunchtime - Casual</p>
+
+              <!-- Live Countdown Timer -->
+              <div class="events_countdown" id="events-countdown" aria-label="Countdown to Barbecue Party">
+                <div class="countdown_box">
+                  <span class="countdown_number" id="countdown-days">00</span>
+                  <span class="countdown_label">Days</span>
+                </div>
+                <div class="countdown_box">
+                  <span class="countdown_number" id="countdown-hours">00</span>
+                  <span class="countdown_label">Hours</span>
+                </div>
+                <div class="countdown_box">
+                  <span class="countdown_number" id="countdown-minutes">00</span>
+                  <span class="countdown_label">Minutes</span>
+                </div>
+                <div class="countdown_box">
+                  <span class="countdown_number" id="countdown-seconds">00</span>
+                  <span class="countdown_label">Seconds</span>
+                </div>
+              </div>
+            </div>
+
+            <a
+              href="https://www.facebook.com/Steakhouse"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="button_link"
+            >
+              View on Facebook
+              <i class="ri-arrow-right-long-line"></i>
+            </a>
+
+            <img
+              src="./assets/img/event-spoon.png"
+              alt="Events_Sppon_Image"
+              class="events_spoon"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!--==================== INGREDIENTS SECTION ====================-->
+      <section class="ingredients section">
+        <div class="ingredients_container container grid">
+          <div class="ingredients_data">
+            <span class="section_subtitle">Discover</span>
+            <h2 class="section_title">The Best Ingredients</h2>
+
+            <p class="ingredients_description">
+              We take immense pride in carefully selecting our ingredients to
+              ensure the flavors of our food are as delicious and authentic as
+              possible. We achieve this level of excellence thanks to the
+              attention to detail we dedicate to each dish, something difficult
+              to find in other restaurants due to our superior quality.
+            </p>
+          </div>
+
+          <div class="ingredients_images">
+            <img
+              src="./assets/img/ingredient-8.png"
+              alt="Natural ingredients for gourmet recipes"
+              class="ingredients_img-8"
+            />
+            <img
+              src="./assets/img/ingredient-7.png"
+              alt="Natural ingredients for gourmet recipes"
+              class="ingredients_img-7"
+            />
+            <img
+              src="./assets/img/ingredient-6.png"
+              alt="Natural ingredients for gourmet recipes"
+              class="ingredients_img-6"
+            />
+            <img
+              src="./assets/img/ingredient-5.png"
+              alt="Natural ingredients for gourmet recipes"
+              class="ingredients_img-5"
+            />
+            <img
+              src="./assets/img/ingredient-4.png"
+              alt="Natural ingredients for gourmet recipes"
+              class="ingredients_img-4"
+            />
+            <img
+              src="./assets/img/ingredient-3.png"
+              alt="Natural ingredients for gourmet recipes"
+              class="ingredients_img-3"
+            />
+            <img
+              src="./assets/img/ingredient-2.png"
+              alt="Natural ingredients for gourmet recipes"
+              class="ingredients_img-2"
+            />
+            <img
+              src="./assets/img/ingredient-1.png"
+              alt="Natural ingredients for gourmet recipes"
+              class="ingredients_img-1"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!--==================== TESTIMONIALS SECTION ====================-->
+      <section class="testimonials section" id="testimonials">
+        <span class="section_subtitle">Reviews</span>
+        <h2 class="section_title">What Guests Say</h2>
+
+        <div class="testimonials_container container">
+          <div
+            class="testimonials_carousel"
+            id="testimonials-carousel"
+            role="region"
+            aria-label="Customer Reviews Carousel"
+          >
+            <div class="testimonials_track" id="testimonials-track">
+              <!-- Cards rendered dynamically or statically -->
+              <article class="testimonial_card">
+                <div class="testimonial_rating" aria-label="5 out of 5 stars">
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                </div>
+                <blockquote class="testimonial_quote">
+                  "The dry-aged Ribeye is simply out of this world. Perfectly flame-seared, incredibly tender, and the garlic butter brings everything together. Hands down the finest steakhouse in the city."
+                </blockquote>
+                <div class="testimonial_author">
+                  <span class="testimonial_name">Marcus Vance</span>
+                  <span class="testimonial_role">Michelin Dining Critic</span>
+                </div>
+              </article>
+
+              <article class="testimonial_card">
+                <div class="testimonial_rating" aria-label="5 out of 5 stars">
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                </div>
+                <blockquote class="testimonial_quote">
+                  "From the warm ambiance to the impeccable service, our anniversary dinner was unforgettable. The Bruschetta starter and Valrhona chocolate dessert were culinary masterclasses."
+                </blockquote>
+                <div class="testimonial_author">
+                  <span class="testimonial_name">Elena Rostova</span>
+                  <span class="testimonial_role">Gastronomy Enthusiast</span>
+                </div>
+              </article>
+
+              <article class="testimonial_card">
+                <div class="testimonial_rating" aria-label="5 out of 5 stars">
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                </div>
+                <blockquote class="testimonial_quote">
+                  "The attention to doneness precision is extraordinary. My steak was a true medium rare from edge to edge with that smoky oak grill crust. The peppercorn sauce is unmatched."
+                </blockquote>
+                <div class="testimonial_author">
+                  <span class="testimonial_name">David Chen</span>
+                  <span class="testimonial_role">Executive Chef</span>
+                </div>
+              </article>
+
+              <article class="testimonial_card">
+                <div class="testimonial_rating" aria-label="5 out of 5 stars">
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                </div>
+                <blockquote class="testimonial_quote">
+                  "An authentic, refined steakhouse experience. Watching the chefs operate around the open flames while savoring world-class cuts makes this place truly special."
+                </blockquote>
+                <div class="testimonial_author">
+                  <span class="testimonial_name">Sophia Laurent</span>
+                  <span class="testimonial_role">Food & Wine Writer</span>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <!-- Carousel Controls -->
+          <div class="testimonials_controls">
+            <button
+              class="testimonials_arrow"
+              id="testimonials-prev"
+              aria-label="Previous testimonial"
+            >
+              <i class="ri-arrow-left-s-line"></i>
+            </button>
+            <div
+              class="testimonials_dots"
+              id="testimonials-dots"
+              role="tablist"
+              aria-label="Testimonial slides"
+            ></div>
+            <button
+              class="testimonials_arrow"
+              id="testimonials-next"
+              aria-label="Next testimonial"
+            >
+              <i class="ri-arrow-right-s-line"></i>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!--==================== CONTACT SECTION ====================-->
+      <section class="contact section" id="contact">
+        <span class="section_subtitle">Order</span>
+        <h2 class="section_title">Contact Us</h2>
+
+        <div class="contact_container container grid">
+          <div class="contact_map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d249743.73289779408!2d-77.15259252335251!3d-12.026589991757843!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c5f619ee3ec7%3A0x14206cb9cc452e4a!2sLima%2C%20Peru!5e0!3m2!1sen!2s!4v1791190762362!5m2!1sen!2s"
+              width="600"
+              height="450"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="strict-origin-when-cross-origin"
+              title="Steakhouse Lima Location"
+            ></iframe>
+          </div>
+
+          <div class="contact_content">
+            <div class="contact_info">
+              <i class="ri-chat-1-line contact_icon"></i>
+              <h3 class="contact_title">Write to us</h3>
+
+              <ul class="contact_social">
+                <li>
+                  <a
+                    href="https://www.facebook.com/Steakhouse"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="contact_link"
+                    aria-label="Facebook"
+                  >
+                    <i class="ri-facebook-circle-line"></i>
+                  </a>
+                </li>
+
+                <li>
+                  <a
+                    href="https://www.instagram.com/Steakhouse"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="contact_link"
+                    aria-label="Instagram"
+                  >
+                    <i class="ri-instagram-line"></i>
+                  </a>
+                </li>
+
+                <li>
+                  <a
+                    href="https://api.whatsapp.com/send?phone=51123456789&text=Hello, more information!"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="contact_link"
+                    aria-label="WhatsApp"
+                  >
+                    <i class="ri-whatsapp-line"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="contact_info">
+              <i class="ri-phone-line contact_icon"></i>
+              <h3 class="contact_title">Call us</h3>
+
+              <address class="contact_address">
+                <a href="tel:+1234-9876-00">+1234-9876-00</a>
+                <a href="tel:+00987654321">+00987654321</a>
+              </address>
+            </div>
+
+            <div class="contact_info">
+              <i class="ri-draft-line contact_icon"></i>
+              <h3 class="contact_title">Reservation</h3>
+
+              <address class="contact_address">
+                <a href="tel:+56-777-99-11-00">+56-777-99-11-00</a>
+              </address>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!--==================== RESERVATION SECTION ====================-->
+      <section class="reservation section" id="reservation">
+        <div class="reservation_container grid">
+          <div class="reservation_shadow"></div>
+          <img
+            src="./assets/img/reservation-img.png"
+            alt="Reservation-Image"
+            class="reservation_bg"
+          />
+
+          <div class="reservation_content">
+            <div class="reservation_data">
+              <span class="section_subtitle">Reservation</span>
+              <h2 class="section_title">Book Your Table</h2>
+            </div>
+
+            <div class="reservation_buttons">
+              <button
+                type="button"
+                class="button reservation_btn"
+                id="open-reservation-btn"
+              >
+                <span>Reserve a Table</span>
+                <i class="ri-calendar-check-line"></i>
+              </button>
+
+              <a
+                href="https://api.whatsapp.com/send?phone=51123456789&text=Hello, more information!"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="button_link reservation_whatsapp"
+              >
+                <span>Or via WhatsApp</span>
+                <i class="ri-whatsapp-line"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!--==================== FOOTER ====================-->
+    <footer class="footer">
+      <div class="footer_container container grid">
+        <div class="footer_data">
+          <h3 class="footer_title">Links</h3>
+
+          <ul class="footer_links">
+            <li>
+              <a href="#home" class="footer_link">Home</a>
+            </li>
+
+            <li>
+              <a href="#menu" class="footer_link">Menu</a>
+            </li>
+
+            <li>
+              <a href="#testimonials" class="footer_link">Reviews</a>
+            </li>
+
+            <li>
+              <a href="#contact" class="footer_link">Contact</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer_data">
+          <h3 class="footer_title">Location</h3>
+
+          <address class="footer_address">
+            128th Street Avenue, Miraflores, <br />
+            Lima - Peru
+          </address>
+        </div>
+
+        <div class="footer_data">
+          <h3 class="footer_title">Working Hours</h3>
+
+          <p
+            class="footer_address"
+            itemscope
+            itemtype="https://schema.org/LocalBusiness"
+          >
+            <span itemprop="openingHours" content="Mo-Sa 09:00-20:00"
+              >Monday - Saturday: 9am - 8pm</span
+            >
+            <span itemprop="openingHours" content="Su 09:00-18:00"
+              >Sunday: 9am - 6pm</span
+            >
+          </p>
+
+          <!-- Dynamic Opening Status -->
+          <div class="footer_status_container" id="footer-status" aria-live="polite">
+            <!-- Populated by JavaScript -->
+          </div>
+        </div>
+
+        <div class="footer_data">
+          <a href="index.html" class="footer_logo">Steakhouse</a>
+
+          <span class="footer_email">steakhouse@email.com</span>
+        </div>
+      </div>
+
+      <small class="footer_copy">
+        &#169; All Rights Reserved By Azeem Toretto
+      </small>
+    </footer>
+
+    <!--========== SCROLL UP ==========-->
+    <a href="#" class="scrollup" id="scroll-up" aria-label="Scroll to top">
+      <i class="ri-arrow-up-line"></i>
+    </a>
+
+    <!--==================== MENU DETAIL MODAL ====================-->
+    <div
+      class="modal_backdrop"
+      id="menu-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modal-dish-name"
+      hidden
+    >
+      <div class="modal_container" id="menu-modal-container">
+        <button
+          type="button"
+          class="modal_close_btn"
+          id="menu-modal-close"
+          aria-label="Close menu detail modal"
+        >
+          <i class="ri-close-large-line"></i>
+        </button>
+
+        <div class="modal_content" id="menu-modal-body">
+          <!-- Populated dynamically via JS -->
+        </div>
+      </div>
+    </div>
+
+    <!--==================== CART DRAWER ====================-->
+    <div class="cart_overlay" id="cart-overlay" hidden></div>
+    <aside
+      class="cart_drawer"
+      id="cart-drawer"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Your Order Cart"
+      hidden
+    >
+      <div class="cart_header">
+        <div class="cart_title_wrap">
+          <i class="ri-shopping-bag-3-line cart_header_icon"></i>
+          <h2 class="cart_heading">Your Order</h2>
+        </div>
+        <button
+          type="button"
+          class="cart_close_btn"
+          id="cart-close"
+          aria-label="Close cart"
+        >
+          <i class="ri-close-large-line"></i>
+        </button>
+      </div>
+
+      <div class="cart_items_list" id="cart-items-container">
+        <!-- Rendered via JS -->
+      </div>
+
+      <div class="cart_footer" id="cart-footer">
+        <!-- Totals & Actions rendered via JS -->
+      </div>
+    </aside>
+
+    <!--==================== RESERVATION MODAL ====================-->
+    <div
+      class="modal_backdrop"
+      id="reservation-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="reservation-modal-title"
+      hidden
+    >
+      <div class="modal_container modal_container--form" id="reservation-modal-container">
+        <button
+          type="button"
+          class="modal_close_btn"
+          id="reservation-modal-close"
+          aria-label="Close reservation modal"
+        >
+          <i class="ri-close-large-line"></i>
+        </button>
+
+        <div class="modal_content" id="reservation-modal-body">
+          <!-- Form or Confirmation rendered via JS -->
+        </div>
+      </div>
+    </div>
+
+    <!--==================== CHECKOUT MODAL ====================-->
+    <div
+      class="modal_backdrop"
+      id="checkout-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="checkout-modal-title"
+      hidden
+    >
+      <div class="modal_container modal_container--form" id="checkout-modal-container">
+        <button
+          type="button"
+          class="modal_close_btn"
+          id="checkout-modal-close"
+          aria-label="Close checkout modal"
+        >
+          <i class="ri-close-large-line"></i>
+        </button>
+
+        <div class="modal_content" id="checkout-modal-body">
+          <!-- Checkout Form or Order Success rendered via JS -->
+        </div>
+      </div>
+    </div>
+
+    <!--==================== TOAST CONTAINER ====================-->
+    <div
+      class="toast_container"
+      id="toast-container"
+      role="region"
+      aria-live="polite"
+      aria-label="Notifications"
+    ></div>
+
+    <!--=============== SCROLLREVEAL ===============-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/scrollReveal.js/4.0.9/scrollreveal.min.js"></script>
+
+    <!--=============== SCRIPT JS ===============-->
+    <script src="assets/js/script.js"></script>
+  </body>
+</html>
