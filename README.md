@@ -10,7 +10,7 @@ A modern, responsive and interactive steakhouse website built with **HTML, CSS &
   <a href="https://searstone.netlify.app/">
     <img src="https://img.shields.io/badge/Live%20Demo-Sear%20%26%20Stone-c89b63?style=for-the-badge" alt="Live Demo">
   </a>
-  <a href="https://github.com/Azeem-Toretto-1/Steak-House">
+  <a href="https://github.com/Azeem-Toretto-1/Sear-Stone">
     <img src="https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github" alt="GitHub Repository">
   </a>
 </p>
@@ -188,13 +188,13 @@ Steak-House/
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/Azeem-Toretto-1/Steak-House.git
+git clone https://github.com/Azeem-Toretto-1/Sear-Stone
 ```
 
 ### 2. Navigate to the project
 
 ```bash
-cd Steak-House
+cd Sear-Stone
 ```
 
 ### 3. Run the project
@@ -215,7 +215,7 @@ Experience the complete Sear & Stone website:
 
 View the complete source code on GitHub:
 
-**https://github.com/Azeem-Toretto-1/Steak-House**
+**https://github.com/Azeem-Toretto-1/Sear-Stone**
 
 ---
 
