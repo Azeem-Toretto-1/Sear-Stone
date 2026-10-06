@@ -135,9 +135,17 @@ export const launchRainbowConfetti = () => {
 };
 
 /*========== TOAST NOTIFICATION ==========*/
-export const showToast = ({ image, title, message, quantity = 1 }) => {
+export const showToast = ({ image, title, message, quantity = 1, status }) => {
   const container = document.getElementById("toast-container");
   if (!container) return;
+
+  const statusText =
+    status ||
+    (title === "Table Reserved"
+      ? "Reservation Confirmed"
+      : title === "Order Placed"
+      ? "Order Confirmed"
+      : "Added to Cart");
 
   const toast = document.createElement("div");
   toast.className = "toast";
@@ -147,7 +155,7 @@ export const showToast = ({ image, title, message, quantity = 1 }) => {
     <div class="toast_body">
       <div class="toast_header">
         <i class="ri-checkbox-circle-fill toast_icon"></i>
-        <span class="toast_status">Notification</span>
+        <span class="toast_status">${statusText}</span>
       </div>
       <div class="toast_title">${title} ${quantity > 1 ? `(&times;${quantity})` : ""}</div>
       <div class="toast_detail">${message}</div>

@@ -710,6 +710,11 @@ body.light-theme .toast {
   box-shadow: 0 10px 25px hsla(0, 0%, 0%, 0.15);
 }
 
+.toast.toast--show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
 .toast_img {
   width: 46px;
   height: 46px;
