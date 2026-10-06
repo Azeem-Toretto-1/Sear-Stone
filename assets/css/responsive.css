@@ -1,0 +1,478 @@
+/*==================================================
+  RESPONSIVE CSS - All Media Queries & Breakpoints
+==================================================*/
+
+/* Navigation for mobile devices */
+@media (width <= 1150px) {
+  .nav_menu {
+    position: fixed;
+    top: 0;
+    right: -120%;
+    background-color: var(--body-color);
+    width: 80%;
+    height: 100%;
+    box-shadow: -2px 0 16px hsla(0, 0%, 0%, 0.3);
+    padding: 7rem 0 2rem 3rem;
+    z-index: var(--z-fixed);
+    transition: right 0.4s;
+  }
+
+  body.light-theme .nav_menu {
+    background-color: var(--container-color);
+    box-shadow: -2px 0 20px hsla(0, 0%, 0%, 0.12);
+  }
+}
+
+/* For small form grids */
+@media (width >= 480px) {
+  .form_grid--two {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* For small mobile devices */
+@media (width <= 540px) {
+  .toast_container {
+    right: 1rem;
+    left: 1rem;
+    bottom: 1rem;
+  }
+
+  .toast {
+    min-width: unset;
+    width: 100%;
+  }
+
+  .modal_container {
+    padding: 2rem 1.25rem;
+  }
+
+  .cart_drawer {
+    max-width: 100%;
+  }
+}
+
+/* For medium devices */
+@media (width >= 540px) {
+  .about_container,
+  .events_container {
+    width: 350px;
+    margin-inline: auto;
+  }
+
+  .menu_container,
+  .ingredients_container,
+  .contact_container {
+    grid-template-columns: 400px;
+    justify-content: center;
+  }
+}
+
+/* For tablet devices */
+@media (width >= 768px) {
+  .contact_content,
+  .footer_container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* For large devices - Typography */
+@media (width >= 1150px) {
+  :root {
+    --biggest-font-size: 4rem;
+    --bigger-font-size: 2.5rem;
+    --h1-font-size: 2.25rem;
+    --h2-font-size: 1.5rem;
+    --h3-font-size: 1.25rem;
+    --normal-font-size: 1rem;
+    --small-font-size: 0.875rem;
+    --smaller-font-size: 0.813rem;
+  }
+}
+
+/* For large devices - Layout */
+@media (width >= 1150px) {
+  .container {
+    margin-inline: auto;
+  }
+
+  .section {
+    padding-block: 7rem 2rem;
+  }
+
+  .section_title {
+    margin-bottom: 1.5rem;
+  }
+
+  .nav {
+    height: calc(var(--header-height) + 2rem);
+  }
+
+  .nav_toggle,
+  .nav_close {
+    display: none;
+  }
+
+  .nav_list {
+    flex-direction: row;
+    column-gap: 3rem;
+  }
+
+  .home_container {
+    grid-template-columns: 460px 560px;
+    column-gap: 4rem;
+    align-items: center;
+    justify-content: center;
+    padding-block: 7rem 4rem;
+  }
+
+  .home_data {
+    text-align: initial;
+  }
+
+  .home_title {
+    margin-bottom: 3rem;
+  }
+
+  .home_images .home_fryingpan {
+    width: 560px;
+  }
+
+  .home_rosemary-2 {
+    width: 200px;
+    right: -3rem;
+    bottom: 8rem;
+  }
+
+  .home_spoon {
+    width: 160px;
+    top: 2rem;
+    right: -4rem;
+  }
+
+  .home_onion {
+    width: 120px;
+    top: 0;
+    left: -2rem;
+  }
+
+  .home_rosemary-1 {
+    width: 120px;
+    left: -4rem;
+    bottom: 5rem;
+  }
+
+  .home_tomato {
+    width: 120px;
+    left: 1rem;
+    bottom: 2rem;
+  }
+
+  .home_pepper {
+    width: 200px;
+    right: 12rem;
+    bottom: 2rem;
+  }
+
+  .home_salt-1 {
+    width: 300px;
+    top: -3rem;
+    right: 2rem;
+  }
+
+  .home_salt-2 {
+    width: 300px;
+    left: -6rem;
+    bottom: 7rem;
+  }
+
+  .about_container {
+    width: initial;
+    grid-template-columns: 450px 670px;
+    column-gap: 0;
+    margin-block: 5rem 4rem;
+  }
+
+  .about_flour {
+    width: 450px;
+    left: 5.5rem;
+    top: -7rem;
+  }
+
+  .about_data {
+    padding: 0 6rem;
+    text-align: initial;
+    align-content: center;
+  }
+
+  .about_data :is(.section_subtitle, .section_title) {
+    text-align: initial;
+  }
+
+  .about_rosemary {
+    width: 220px;
+    right: -4rem;
+    bottom: -4rem;
+  }
+
+  .menu_container {
+    row-gap: 6.5rem;
+    grid-template-columns: 850px;
+  }
+
+  .menu_header {
+    display: grid;
+    grid-template-columns: max-content 500px;
+    column-gap: 9rem;
+    align-items: center;
+  }
+
+  .menu_header .section_subtitle {
+    text-align: right;
+  }
+
+  .menu_description {
+    text-align: initial;
+  }
+
+  .menu_dish-1 {
+    width: 250px;
+  }
+
+  .menu_rosemary {
+    width: 200px;
+    left: -3rem;
+    bottom: -3rem;
+  }
+
+  .menu_flour-1 {
+    width: 250px;
+    top: -5.5rem;
+    right: -4.5rem;
+  }
+
+  .menu_dish-2 {
+    width: 380px;
+  }
+
+  .menu_flour-2 {
+    width: 380px;
+    top: -5.5rem;
+    left: -8rem;
+  }
+
+  .menu_pepper {
+    width: 270px;
+    right: 1.5rem;
+    bottom: -6rem;
+  }
+
+  .menu_dish-3 {
+    width: 300px;
+  }
+
+  .menu_flour-3 {
+    width: 380px;
+    top: -8rem;
+    right: -8rem;
+  }
+
+  .menu_tomato {
+    width: 130px;
+    bottom: -3.5rem;
+  }
+
+  .menu_dish-4 {
+    width: 310px;
+  }
+
+  .menu_flour-4 {
+    width: 370px;
+    top: -3rem;
+    left: -8rem;
+  }
+
+  .menu_info {
+    width: 300px;
+  }
+
+  .menu_card:nth-child(odd) .menu_info {
+    justify-self: flex-end;
+  }
+
+  .menu_card:nth-child(even) .menu_info {
+    justify-self: flex-start;
+  }
+
+  .menu_summary {
+    font-size: var(--normal-font-size);
+  }
+
+  .events_container {
+    width: initial;
+    grid-template-columns: 450px 670px;
+    column-gap: 0;
+    margin-block: 5rem 4rem;
+  }
+
+  .events_flour {
+    width: 450px;
+    left: 5.5rem;
+    top: -7rem;
+  }
+
+  .events_data {
+    padding: 0 6rem;
+    text-align: initial;
+    align-content: center;
+  }
+
+  .events_data :is(.section_subtitle, .section_title) {
+    text-align: initial;
+  }
+
+  .events_info {
+    text-align: right;
+  }
+
+  .events_spoon {
+    width: 250px;
+    right: -2rem;
+    bottom: -2rem;
+  }
+
+  .events_countdown {
+    margin-inline: 0 0;
+    margin-left: auto;
+  }
+
+  .ingredients_container {
+    grid-template-columns: 650px;
+    row-gap: 6rem;
+  }
+
+  .ingredients_images .ingredients_img-1 {
+    width: 280px;
+  }
+
+  .ingredients_img-2 {
+    width: 115px;
+    left: -9rem;
+  }
+
+  .ingredients_img-3 {
+    width: 95px;
+    right: -8rem;
+  }
+
+  .ingredients_img-4 {
+    width: 80px;
+    left: -18rem;
+    top: 6.5rem;
+  }
+
+  .ingredients_img-5 {
+    width: 140px;
+    left: -19rem;
+  }
+
+  .ingredients_img-6 {
+    width: 110px;
+    right: -9rem;
+    top: 1rem;
+  }
+
+  .ingredients_img-7 {
+    width: 110px;
+    right: -17rem;
+    top: 9rem;
+  }
+
+  .ingredients_img-8 {
+    width: 150px;
+    right: -20rem;
+  }
+
+  .contact .section_title {
+    margin-bottom: 4rem;
+  }
+
+  .contact_container {
+    grid-template-columns: 350px 450px;
+    align-items: center;
+    column-gap: 12rem;
+  }
+
+  .contact_map {
+    width: 450px;
+    height: 400px;
+    order: 1;
+  }
+
+  .contact_content {
+    gap: 5rem;
+  }
+
+  .reservation_container {
+    height: 480px;
+  }
+
+  .reservation_content {
+    text-align: center;
+  }
+
+  .reservation_data {
+    margin-bottom: 4rem;
+  }
+
+  .reservation_data .section_subtitle {
+    font-size: 3rem;
+  }
+
+  .reservation_data .section_title {
+    font-size: 3.5rem;
+  }
+
+  .footer {
+    padding-top: 6rem;
+  }
+
+  .footer_container {
+    grid-template-columns: repeat(4, max-content);
+    justify-content: space-between;
+  }
+
+  .footer_title,
+  .footer_logo {
+    margin-bottom: 1rem;
+  }
+
+  .scrollup {
+    right: 3rem;
+  }
+}
+
+/* For 2K resolutions */
+@media (width >= 2048px) {
+  body {
+    zoom: 120%;
+  }
+}
+
+/* Accessibility: Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .loader_ring,
+  .loader_icon,
+  .status_dot {
+    animation: none !important;
+  }
+}

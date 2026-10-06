@@ -1,0 +1,151 @@
+/*==================================================
+  ANIMATIONS CSS - Loader, Keyframes & Micro-interactions
+==================================================*/
+
+/*========== Page Loader ==========*/
+.page_loader {
+  position: fixed;
+  inset: 0;
+  background-color: hsl(0, 0%, 8%);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.page_loader.loader-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.loader_content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.loader_logo {
+  font: var(--font-bold) 2.5rem var(--second-font);
+  color: var(--first-color);
+  margin-bottom: 1.25rem;
+  letter-spacing: 1px;
+}
+
+.loader_spinner {
+  position: relative;
+  width: 58px;
+  height: 58px;
+  margin-bottom: 1.25rem;
+  display: grid;
+  place-items: center;
+}
+
+.loader_ring {
+  position: absolute;
+  inset: 0;
+  border: 2px solid hsla(30, 32%, 56%, 0.2);
+  border-top-color: var(--first-color);
+  border-radius: 50%;
+  animation: loaderSpin 1.1s cubic-bezier(0.6, 0.05, 0.28, 0.91) infinite;
+}
+
+.loader_icon {
+  font-size: 1.5rem;
+  color: var(--first-color);
+  animation: loaderFlame 1.4s ease-in-out infinite alternate;
+}
+
+.loader_text {
+  font-family: var(--body-font);
+  font-size: var(--small-font-size);
+  color: var(--first-color-alt);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/*========== Keyframe Animations ==========*/
+@keyframes loaderSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes loaderFlame {
+  0% {
+    transform: scale(0.85);
+    opacity: 0.65;
+  }
+  100% {
+    transform: scale(1.15);
+    opacity: 1;
+    text-shadow: 0 0 12px hsla(30, 48%, 56%, 0.6);
+  }
+}
+
+@keyframes cartIconPulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.25) rotate(-10deg);
+    color: var(--first-color);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+@keyframes pulseDot {
+  0%, 100% {
+    transform: scale(0.9);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.3);
+    opacity: 1;
+  }
+}
+
+@keyframes errorFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-3px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes btnSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes successEntrance {
+  0% {
+    opacity: 0;
+    transform: translateY(16px) scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes badgePop {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

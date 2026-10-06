@@ -1,0 +1,74 @@
+/*==================================================
+  RESERVATION CSS - Reservation CTA Section & Actions
+==================================================*/
+
+/*=============== RESERVATION SECTION ===============*/
+.reservation_container {
+  position: relative;
+  height: 420px;
+  place-items: center;
+}
+
+.reservation_bg,
+.reservation_shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.reservation_bg {
+  object-fit: cover;
+  object-position: center;
+}
+
+.reservation_shadow {
+  background-color: hsla(0, 0%, 0%, 0.4);
+  z-index: 5;
+}
+
+.reservation_content {
+  position: relative;
+  z-index: 10;
+}
+
+.reservation_data {
+  margin-bottom: 3rem;
+}
+
+.reservation_data .section_subtitle {
+  color: var(--white-color);
+}
+
+/* Reservation Section Button Extensions */
+.reservation_buttons {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+}
+
+.reservation_whatsapp {
+  color: var(--white-color);
+  font-size: var(--normal-font-size);
+}
+
+.reservation_whatsapp:hover {
+  color: var(--first-color);
+}
+
+/* Light Theme Overrides */
+body.light-theme .reservation_data .section_subtitle,
+body.light-theme .reservation_content .button,
+body.light-theme .reservation_whatsapp {
+  color: hsl(0, 0%, 98%);
+  border-color: hsl(0, 0%, 98%);
+}
+
+body.light-theme .reservation_content .button:hover {
+  background-color: var(--first-color);
+  border-color: var(--first-color);
+  color: hsl(0, 0%, 10%);
+}

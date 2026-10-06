@@ -1,0 +1,364 @@
+/*==================================================
+  MENU CSS - Menu Section, Dish Cards & Customization Modal
+==================================================*/
+
+/*=============== MENU SECTION ===============*/
+.menu_container {
+  row-gap: 4rem;
+}
+
+.menu_description {
+  text-align: center;
+}
+
+.menu_content {
+  display: grid;
+  row-gap: 2rem;
+}
+
+.menu_card {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: transform 0.35s ease;
+  border-radius: 4px;
+  padding: 0.5rem;
+}
+
+.menu_card:hover {
+  transform: translateY(-4px);
+}
+
+.menu_name {
+  font: var(--font-bold) var(--h2-font-size) var(--second-font);
+  color: var(--first-color);
+  margin-bottom: 0.5rem;
+}
+
+.menu_summary {
+  font-size: var(--small-font-size);
+}
+
+.menu_images {
+  position: relative;
+}
+
+.menu_card:nth-child(even) .menu_info {
+  order: -1;
+}
+
+.menu_card:nth-child(odd) .menu_images {
+  justify-self: flex-start;
+}
+
+.menu_card:nth-child(even) .menu_images {
+  justify-self: flex-end;
+}
+
+.menu_dish-1 {
+  width: 100px;
+  position: relative;
+  z-index: 5;
+}
+
+.menu_rosemary {
+  position: absolute;
+  width: 80px;
+  left: -1rem;
+  bottom: -1rem;
+}
+
+.menu_flour-1 {
+  width: 100px;
+  position: absolute;
+  top: -2rem;
+  right: -1.5rem;
+}
+
+.menu_dish-2 {
+  width: 140px;
+  position: relative;
+  z-index: 5;
+}
+
+.menu_flour-2 {
+  width: 150px;
+  position: absolute;
+  top: -2rem;
+  left: -3rem;
+}
+
+.menu_pepper {
+  width: 100px;
+  position: absolute;
+  right: 0.5rem;
+  bottom: -2rem;
+}
+
+.menu_dish-3 {
+  width: 120px;
+  position: relative;
+  z-index: 5;
+}
+
+.menu_flour-3 {
+  max-width: initial;
+  width: 150px;
+  position: absolute;
+  top: -3rem;
+  right: -3rem;
+}
+
+.menu_tomato {
+  width: 50px;
+  position: absolute;
+  left: 0.5rem;
+  bottom: -1rem;
+}
+
+.menu_dish-4 {
+  width: 125px;
+  position: relative;
+  z-index: 5;
+}
+
+.menu_flour-4 {
+  max-width: initial;
+  width: 150px;
+  position: absolute;
+  top: -1.5rem;
+  left: -2rem;
+}
+
+.menu_meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.75rem;
+  padding-top: 0.5rem;
+  border-top: 1px dashed hsla(30, 32%, 56%, 0.3);
+}
+
+.menu_price {
+  font-size: 1.15rem;
+  font-weight: var(--font-bold);
+  color: var(--first-color);
+}
+
+.menu_action {
+  font-size: var(--small-font-size);
+  cursor: pointer;
+}
+
+.menu_action i {
+  font-size: 1rem;
+}
+
+/*=============== MENU DETAIL MODAL CONTENT ===============*/
+.modal_dish_preview {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.modal_dish_img {
+  width: 180px;
+  height: 180px;
+  object-fit: contain;
+  filter: drop-shadow(0 12px 24px hsla(0, 0%, 0%, 0.45));
+}
+
+.modal_dish_header {
+  text-align: center;
+  margin-bottom: 1.25rem;
+}
+
+.modal_dish_tag {
+  display: inline-block;
+  font-size: var(--smaller-font-size);
+  color: var(--first-color);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: var(--font-semi-bold);
+  margin-bottom: 0.35rem;
+}
+
+.modal_dish_title {
+  font: var(--font-bold) var(--h1-font-size) var(--second-font);
+  color: var(--first-color);
+  margin-bottom: 0.25rem;
+}
+
+.modal_dish_subtitle {
+  font-size: var(--small-font-size);
+  color: var(--white-color);
+  opacity: 0.85;
+}
+
+.modal_dish_desc {
+  font-size: var(--normal-font-size);
+  line-height: 1.7;
+  color: var(--white-color);
+  opacity: 0.9;
+  text-align: center;
+  margin-bottom: 1.75rem;
+}
+
+body.light-theme .modal_dish_desc {
+  color: var(--text-color);
+  opacity: 1;
+}
+
+.modal_dish_price_row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.85rem 1rem;
+  background-color: hsla(30, 32%, 56%, 0.08);
+  border: 1px solid hsla(30, 32%, 56%, 0.2);
+  margin-bottom: 1.5rem;
+}
+
+.modal_dish_price_label {
+  font-size: var(--small-font-size);
+  font-weight: var(--font-semi-bold);
+}
+
+.modal_dish_price_val {
+  font-size: 1.35rem;
+  font-weight: var(--font-bold);
+  color: var(--first-color);
+}
+
+/* Customization Options */
+.custom_sections {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-bottom: 1.75rem;
+}
+
+.custom_group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.custom_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.custom_title {
+  font-size: var(--small-font-size);
+  font-weight: var(--font-semi-bold);
+  color: var(--first-color);
+  letter-spacing: 0.5px;
+}
+
+.custom_required {
+  font-size: var(--smaller-font-size);
+  color: var(--first-color-alt);
+}
+
+.custom_chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.custom_chip {
+  background-color: hsla(0, 0%, 100%, 0.05);
+  border: 1px solid hsla(0, 0%, 100%, 0.18);
+  color: var(--white-color);
+  padding: 0.45rem 0.85rem;
+  font-size: var(--small-font-size);
+  cursor: pointer;
+  transition: all 0.25s;
+}
+
+body.light-theme .custom_chip {
+  background-color: hsla(0, 0%, 0%, 0.04);
+  border-color: hsla(0, 0%, 0%, 0.15);
+  color: var(--white-color);
+}
+
+.custom_chip:hover {
+  border-color: var(--first-color);
+}
+
+.custom_chip.chip-active {
+  background-color: var(--first-color);
+  border-color: var(--first-color);
+  color: var(--dark-color);
+  font-weight: var(--font-semi-bold);
+}
+
+/* Quantity and Action */
+.modal_actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.qty_selector_wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+}
+
+.qty_btn {
+  width: 36px;
+  height: 36px;
+  border: 1px solid hsla(30, 32%, 56%, 0.4);
+  color: var(--white-color);
+  font-size: 1.25rem;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+
+.qty_btn:hover {
+  background-color: var(--first-color);
+  border-color: var(--first-color);
+  color: var(--dark-color);
+}
+
+.qty_count {
+  font-size: 1.2rem;
+  font-weight: var(--font-bold);
+  min-width: 28px;
+  text-align: center;
+}
+
+.btn_modal_submit {
+  width: 100%;
+  justify-content: center;
+  background-color: var(--first-color);
+  border-color: var(--first-color);
+  color: var(--dark-color);
+  font-size: 1rem;
+  padding-block: 1rem;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn_modal_submit:hover {
+  background-color: var(--first-color-alt);
+  border-color: var(--first-color-alt);
+  color: hsl(0, 0%, 98%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px hsla(30, 32%, 56%, 0.25);
+}
+
+.btn_modal_submit:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px hsla(30, 32%, 56%, 0.2);
+}
