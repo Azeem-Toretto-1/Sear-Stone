@@ -1,5 +1,5 @@
 /*==================================================
-  STEAKHOUSE RESTAURANT - SCRIPT JS
+  SEAR & STONE - SCRIPT JS
   Modular, accessible & vanilla JavaScript
 ==================================================*/
 
@@ -1295,7 +1295,7 @@ const openReservationModal = () => {
           </div>
 
           <p class="confirmation_msg">
-            Thank you, ${nameVal}. Your table reservation request has been received. Our maître d' has noted your request.
+            Thank you, ${nameVal}. Your table reservation request at Sear &amp; Stone has been received. Our maître d' has noted your request.
           </p>
 
           <button type="button" class="button btn_confirmation_done" id="res-done-btn">
@@ -1498,7 +1498,7 @@ const openCheckoutModal = () => {
     }
 
     setTimeout(() => {
-      const orderNum = `#STK-${Math.floor(1000 + Math.random() * 9000)}`;
+      const orderNum = `#SNS-${Math.floor(1000 + Math.random() * 9000)}`;
 
       // Clear cart upon completion
       CartManager.clearCart();
@@ -1542,7 +1542,7 @@ const openCheckoutModal = () => {
           </div>
 
           <p class="confirmation_msg">
-            Thank you for your order, ${nameVal}. Our chefs are searing your cuts with care. You will receive an SMS update at ${phoneVal}.
+            Thank you for your order at Sear &amp; Stone, ${nameVal}. Our chefs are searing your cuts with care. You will receive an SMS update at ${phoneVal}.
           </p>
 
           <button type="button" class="button btn_confirmation_done" id="chk-done-btn">

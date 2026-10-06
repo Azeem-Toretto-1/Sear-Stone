@@ -4,10 +4,69 @@
     <meta charset="UTF-8" />
     <meta
       name="description"
-      content="Discover premium cuts, gourmet dishes and a culinary experience designed for true meat lovers."
+      content="Experience Sear &amp; Stone, a premium steakhouse offering expertly grilled prime steaks, exquisite culinary craftsmanship, and an unforgettable dining experience."
     />
     <meta name="robots" content="index, follow" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--=============== SOCIAL / OPEN GRAPH ===============-->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Sear &amp; Stone | Premium Steakhouse" />
+    <meta
+      property="og:description"
+      content="Experience Sear &amp; Stone, a premium steakhouse offering expertly grilled prime steaks, exquisite culinary craftsmanship, and an unforgettable dining experience."
+    />
+    <meta property="og:site_name" content="Sear &amp; Stone" />
+    <meta property="og:image" content="assets/img/about-img.png" />
+
+    <!--=============== TWITTER CARDS ===============-->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Sear &amp; Stone | Premium Steakhouse" />
+    <meta
+      name="twitter:description"
+      content="Experience Sear &amp; Stone, a premium steakhouse offering expertly grilled prime steaks, exquisite culinary craftsmanship, and an unforgettable dining experience."
+    />
+    <meta name="twitter:image" content="assets/img/about-img.png" />
+
+    <!--=============== STRUCTURED DATA (JSON-LD) ===============-->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Restaurant",
+      "name": "Sear & Stone",
+      "description": "Experience Sear & Stone, a premium steakhouse offering expertly grilled prime steaks, exquisite culinary craftsmanship, and an unforgettable dining experience.",
+      "image": "assets/img/about-img.png",
+      "servesCuisine": ["Steakhouse", "American", "Grill"],
+      "telephone": ["+1234-9876-00", "+00987654321", "+56-777-99-11-00"],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "128th Street Avenue, Miraflores",
+        "addressLocality": "Lima",
+        "addressCountry": "PE"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday"
+          ],
+          "opens": "09:00",
+          "closes": "20:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Sunday",
+          "opens": "09:00",
+          "closes": "18:00"
+        }
+      ]
+    }
+    </script>
 
     <!--=============== FAVICON ===============-->
     <link
@@ -25,18 +84,18 @@
     <!--=============== CSS ===============-->
     <link rel="stylesheet" href="assets/css/styles.css" />
 
-    <title>Steakhouse Restaurant</title>
+    <title>Sear &amp; Stone | Premium Steakhouse</title>
   </head>
   <body>
     <!--==================== PAGE LOADER ====================-->
     <div class="page_loader" id="page-loader" aria-hidden="true">
       <div class="loader_content">
-        <span class="loader_logo">Steakhouse</span>
+        <span class="loader_logo">Sear &amp; Stone</span>
         <div class="loader_spinner">
           <div class="loader_ring"></div>
           <i class="ri-fire-fill loader_icon"></i>
         </div>
-        <span class="loader_text">Fine Dining & Grill</span>
+        <span class="loader_text">Fine Dining &amp; Grill</span>
       </div>
     </div>
 
@@ -46,7 +105,7 @@
     <!--==================== HEADER & NAV ====================-->
     <header class="header" id="header">
       <nav class="nav container">
-        <a href="index.html" class="nav_logo">Steakhouse</a>
+        <a href="index.html" class="nav_logo">Sear &amp; Stone</a>
 
         <div class="nav_menu" id="nav-menu">
           <ul class="nav_list">
@@ -121,9 +180,9 @@
         <div class="home_container container grid">
           <div class="home_data">
             <h1 class="home_title">
-              A Premium <br />
-              And Authentic <br />
-              Steakhouse
+              Sear &amp; Stone <br />
+              Premium Steakhouse <br />
+              Experience
             </h1>
 
             <a href="#reservation" class="home_button button" id="home-book-btn">Book a Table</a>
@@ -132,47 +191,47 @@
           <div class="home_images">
             <img
               src="./assets/img/home-salt.png"
-              alt="Grilled steak and fresh vegetables"
+              alt="Sear &amp; Stone culinary sea salt seasoning"
               class="home_salt-2"
             />
             <img
               src="./assets/img/home-salt.png"
-              alt="Grilled steak and fresh vegetables"
+              alt="Coarse sea salt seasoning"
               class="home_salt-1"
             />
             <img
               src="./assets/img/home-pepper.png"
-              alt="Grilled steak and fresh vegetables"
+              alt="Whole black peppercorn seasoning"
               class="home_pepper"
             />
             <img
               src="./assets/img/home-tomato.png"
-              alt="Grilled steak and fresh vegetables"
+              alt="Fresh vine-ripened tomato"
               class="home_tomato"
             />
             <img
               src="./assets/img/home-rosemary-1.png"
-              alt="Grilled steak and fresh vegetables"
+              alt="Fresh rosemary herb sprig"
               class="home_rosemary-1"
             />
             <img
               src="./assets/img/home-onion.png"
-              alt="Grilled steak and fresh vegetables"
+              alt="Fresh onion ingredient"
               class="home_onion"
             />
             <img
               src="./assets/img/home-spoon.png"
-              alt="Grilled steak and fresh vegetables"
+              alt="Chef seasoning spoon"
               class="home_spoon"
             />
             <img
               src="./assets/img/home-rosemary-2.png"
-              alt="Grilled steak and fresh vegetables"
+              alt="Aromatic fresh rosemary"
               class="home_rosemary-2"
             />
             <img
               src="./assets/img/home-frying-pan.png"
-              alt="Grilled steak and fresh vegetables"
+              alt="Sear &amp; Stone cast-iron grill skillet"
               class="home_fryingpan"
             />
           </div>
@@ -184,12 +243,12 @@
         <div class="about_container container grid">
           <img
             src="./assets/img/about-flour.png"
-            alt="About-flour-Image"
+            alt="Artisan flour garnish"
             class="about_flour"
           />
           <img
             src="./assets/img/about-img.png"
-            alt="Premium meat grill"
+            alt="Sear &amp; Stone premium flame-grilled steak dinner"
             class="about_img"
           />
 
@@ -198,7 +257,7 @@
             <h2 class="section_title">Our Story</h2>
 
             <p class="about_description">
-              Enjoy the finest experience at our steakhouse. Whether you're
+              Enjoy the finest experience at Sear &amp; Stone. Whether you're
               visiting us for a romantic dinner, a business meeting, a private
               party, or simply for a drink at the bar, our steakhouse in Lima
               will provide you with exceptional service and an unforgettable
@@ -212,7 +271,7 @@
 
             <img
               src="./assets/img/about-rosemary.png"
-              alt="About-Rosemary-Image"
+              alt="Fresh kitchen rosemary garnish"
               class="about_rosemary"
             />
           </div>
@@ -232,7 +291,7 @@
               Few things compare to the pleasure of a good steak and fries,
               simply cooked with care and attention. Rest assured that our chefs
               treat our meat with the respect it deserves for the best quality.
-              The open kitchen in many of our steakhouses is proof of this.
+              The open kitchen at Sear &amp; Stone is proof of this.
             </p>
           </div>
 
@@ -242,17 +301,17 @@
               <div class="menu_images">
                 <img
                   src="./assets/img/menu-dish-1.png"
-                  alt="Bruschetta"
+                  alt="Sear &amp; Stone artisan bruschetta starter"
                   class="menu_dish-1"
                 />
                 <img
                   src="./assets/img/menu-rosemary.png"
-                  alt="Menu-Rosemary-Image"
+                  alt="Fresh rosemary herb garnish"
                   class="menu_rosemary"
                 />
                 <img
                   src="./assets/img/menu-flour.png"
-                  alt="Menu-Flour-Image"
+                  alt="Artisan flour garnish"
                   class="menu_flour-1"
                 />
               </div>
@@ -276,17 +335,17 @@
               <div class="menu_images">
                 <img
                   src="./assets/img/menu-dish-2.png"
-                  alt="Prime Ribeye Steak"
+                  alt="Sear &amp; Stone signature prime dry-aged ribeye steak"
                   class="menu_dish-2"
                 />
                 <img
                   src="./assets/img/menu-flour.png"
-                  alt="Menu-Flour-Image"
+                  alt="Artisan flour garnish"
                   class="menu_flour-2"
                 />
                 <img
                   src="./assets/img/menu-pepper.png"
-                  alt="Menu-Pepper-Image"
+                  alt="Cracked peppercorns"
                   class="menu_pepper"
                 />
               </div>
@@ -311,17 +370,17 @@
               <div class="menu_images">
                 <img
                   src="./assets/img/menu-dish-3.png"
-                  alt="Salad Dish"
+                  alt="Sear &amp; Stone seared Wagyu flank steak salad"
                   class="menu_dish-3"
                 />
                 <img
                   src="./assets/img/menu-flour.png"
-                  alt="Menu-Flour-Image"
+                  alt="Artisan flour garnish"
                   class="menu_flour-3"
                 />
                 <img
                   src="./assets/img/menu-tomato.png"
-                  alt="Menu-Rosemary-Image"
+                  alt="Fresh vine tomato accent"
                   class="menu_tomato"
                 />
               </div>
@@ -346,12 +405,12 @@
               <div class="menu_images">
                 <img
                   src="./assets/img/menu-dish-4.png"
-                  alt="Dessert"
+                  alt="Sear &amp; Stone rich chocolate dessert cake"
                   class="menu_dish-4"
                 />
                 <img
                   src="./assets/img/menu-flour.png"
-                  alt="Menu-Flour-Image"
+                  alt="Artisan flour garnish"
                   class="menu_flour-4"
                 />
               </div>
@@ -379,12 +438,12 @@
         <div class="events_container container grid">
           <img
             src="./assets/img/event-flour.png"
-            alt="Events_Flour_Image"
+            alt="Artisan flour accent"
             class="events_flour"
           />
           <img
             src="./assets/img/event-img.png"
-            alt="People enjoying a meal at a restaurant"
+            alt="Guests celebrating and dining at Sear &amp; Stone"
             class="events_img"
           />
 
@@ -435,7 +494,7 @@
 
             <img
               src="./assets/img/event-spoon.png"
-              alt="Events_Sppon_Image"
+              alt="Chef tasting spoon accent"
               class="events_spoon"
             />
           </div>
@@ -461,42 +520,42 @@
           <div class="ingredients_images">
             <img
               src="./assets/img/ingredient-8.png"
-              alt="Natural ingredients for gourmet recipes"
+              alt="Fresh culinary herbs"
               class="ingredients_img-8"
             />
             <img
               src="./assets/img/ingredient-7.png"
-              alt="Natural ingredients for gourmet recipes"
+              alt="Hand-selected fresh rosemary"
               class="ingredients_img-7"
             />
             <img
               src="./assets/img/ingredient-6.png"
-              alt="Natural ingredients for gourmet recipes"
+              alt="Cracked peppercorns and spices"
               class="ingredients_img-6"
             />
             <img
               src="./assets/img/ingredient-5.png"
-              alt="Natural ingredients for gourmet recipes"
+              alt="Fresh aromatic garlic cloves"
               class="ingredients_img-5"
             />
             <img
               src="./assets/img/ingredient-4.png"
-              alt="Natural ingredients for gourmet recipes"
+              alt="Prime steak seasoning herbs"
               class="ingredients_img-4"
             />
             <img
               src="./assets/img/ingredient-3.png"
-              alt="Natural ingredients for gourmet recipes"
+              alt="Cold-pressed culinary oil"
               class="ingredients_img-3"
             />
             <img
               src="./assets/img/ingredient-2.png"
-              alt="Natural ingredients for gourmet recipes"
+              alt="Fresh organic vine tomatoes"
               class="ingredients_img-2"
             />
             <img
               src="./assets/img/ingredient-1.png"
-              alt="Natural ingredients for gourmet recipes"
+              alt="Hand-harvested sea salt flakes"
               class="ingredients_img-1"
             />
           </div>
@@ -628,7 +687,7 @@
               allowfullscreen=""
               loading="lazy"
               referrerpolicy="strict-origin-when-cross-origin"
-              title="Steakhouse Lima Location"
+              title="Sear &amp; Stone Lima Location"
             ></iframe>
           </div>
 
@@ -704,7 +763,7 @@
           <div class="reservation_shadow"></div>
           <img
             src="./assets/img/reservation-img.png"
-            alt="Reservation-Image"
+            alt="Sear &amp; Stone dining room ambiance for reservations"
             class="reservation_bg"
           />
 
@@ -796,9 +855,9 @@
         </div>
 
         <div class="footer_data">
-          <a href="index.html" class="footer_logo">Steakhouse</a>
+          <a href="index.html" class="footer_logo">Sear &amp; Stone</a>
 
-          <span class="footer_email">steakhouse@email.com</span>
+          <span class="footer_email">contact@searandstone.com</span>
         </div>
       </div>
 
