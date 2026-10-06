@@ -349,6 +349,112 @@ const initTestimonialsCarousel = () => {
 };
 
 /*==================================================
+  FEATURE 1: RAINBOW CONFETTI (LIGHTWEIGHT CANVAS)
+==================================================*/
+const launchRainbowConfetti = () => {
+  // Respect user preference for reduced motion
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    return;
+  }
+
+  // Prevent multiple overlapping canvases
+  const existing = document.getElementById("confetti-canvas");
+  if (existing) existing.remove();
+
+  const canvas = document.createElement("canvas");
+  canvas.id = "confetti-canvas";
+  canvas.style.position = "fixed";
+  canvas.style.top = "0";
+  canvas.style.left = "0";
+  canvas.style.width = "100vw";
+  canvas.style.height = "100vh";
+  canvas.style.pointerEvents = "none";
+  canvas.style.zIndex = "99999";
+  document.body.appendChild(canvas);
+
+  const ctx = canvas.getContext("2d");
+  const dpr = window.devicePixelRatio || 1;
+  const width = window.innerWidth;
+  const height = window.innerHeight;
+  canvas.width = width * dpr;
+  canvas.height = height * dpr;
+  ctx.scale(dpr, dpr);
+
+  // Vibrant rainbow palette: red, orange, yellow, green, blue, purple, pink
+  const colors = [
+    "#ef4444", // red
+    "#f97316", // orange
+    "#eab308", // yellow
+    "#22c55e", // green
+    "#3b82f6", // blue
+    "#a855f7", // purple
+    "#ec4899", // pink
+  ];
+
+  const particleCount = 75;
+  const particles = [];
+
+  for (let i = 0; i < particleCount; i++) {
+    particles.push({
+      x: width * (0.35 + Math.random() * 0.3),
+      y: height * 0.45,
+      w: Math.random() * 8 + 5,
+      h: Math.random() * 12 + 6,
+      vx: (Math.random() - 0.5) * 16,
+      vy: -(Math.random() * 14 + 6),
+      rot: Math.random() * 360,
+      vRot: (Math.random() - 0.5) * 10,
+      color: colors[Math.floor(Math.random() * colors.length)],
+      opacity: 1,
+      gravity: 0.32,
+      drag: 0.98,
+    });
+  }
+
+  let animationFrameId;
+  const startTime = performance.now();
+  const maxDuration = 2800; // 2.8s total celebration
+
+  const render = (currentTime) => {
+    const elapsed = currentTime - startTime;
+    ctx.clearRect(0, 0, width, height);
+
+    let activeParticles = 0;
+    particles.forEach((p) => {
+      p.x += p.vx;
+      p.y += p.vy;
+      p.vy += p.gravity;
+      p.vx *= p.drag;
+      p.rot += p.vRot;
+
+      if (elapsed > 1600) {
+        p.opacity = Math.max(0, 1 - (elapsed - 1600) / 1200);
+      }
+
+      if (p.opacity > 0 && p.y < height + 50) {
+        activeParticles++;
+        ctx.save();
+        ctx.translate(p.x, p.y);
+        ctx.rotate((p.rot * Math.PI) / 180);
+        ctx.fillStyle = p.color;
+        ctx.globalAlpha = p.opacity;
+        ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+        ctx.restore();
+      }
+    });
+
+    if (elapsed < maxDuration && activeParticles > 0) {
+      animationFrameId = requestAnimationFrame(render);
+    } else {
+      cancelAnimationFrame(animationFrameId);
+      canvas.remove();
+    }
+  };
+
+  animationFrameId = requestAnimationFrame(render);
+};
+
+/*==================================================
   MODAL & SCROLL LOCK HELPERS
 ==================================================*/
 const openModal = (modalEl) => {
@@ -502,12 +608,22 @@ const CartManager = {
 
   updateCartBadge() {
     const badge = document.getElementById("cart-count");
+    const cartBtn = document.getElementById("cart-button");
     if (!badge) return;
     const { totalCount } = this.getTotals();
     badge.textContent = totalCount;
 
+    badge.classList.remove("badge-bump");
+    void badge.offsetWidth;
     badge.classList.add("badge-bump");
     setTimeout(() => badge.classList.remove("badge-bump"), 300);
+
+    if (cartBtn) {
+      cartBtn.classList.remove("cart-icon-bump");
+      void cartBtn.offsetWidth;
+      cartBtn.classList.add("cart-icon-bump");
+      setTimeout(() => cartBtn.classList.remove("cart-icon-bump"), 400);
+    }
   },
 };
 
@@ -611,17 +727,31 @@ const renderCartDrawer = () => {
     </div>
   `;
 
-  // Attach event listeners for item quantity/delete actions
+  // Attach event listeners for item quantity/delete actions with micro-interactions
   container.querySelectorAll("button[data-action]").forEach((btn) => {
     btn.addEventListener("click", () => {
       const action = btn.dataset.action;
       const key = btn.dataset.key;
-      if (action === "increase") {
-        CartManager.updateQuantity(key, 1);
-      } else if (action === "decrease") {
-        CartManager.updateQuantity(key, -1);
+      const card = btn.closest(".cart_item_card");
+
+      if (action === "increase" || action === "decrease") {
+        const qtyNum = card ? card.querySelector(".cart_item_qty_num") : null;
+        if (qtyNum) {
+          qtyNum.classList.remove("qty-bump");
+          void qtyNum.offsetWidth;
+          qtyNum.classList.add("qty-bump");
+          setTimeout(() => qtyNum.classList.remove("qty-bump"), 200);
+        }
+        CartManager.updateQuantity(key, action === "increase" ? 1 : -1);
       } else if (action === "delete") {
-        CartManager.removeItem(key);
+        if (card) {
+          card.classList.add("item-removing");
+          setTimeout(() => {
+            CartManager.removeItem(key);
+          }, 280);
+        } else {
+          CartManager.removeItem(key);
+        }
       }
     });
   });
@@ -900,7 +1030,7 @@ const openMenuModal = (dishId) => {
       });
     }
 
-    // Handle Add to Cart
+    // Handle Add to Cart with tactile button micro-interaction
     if (submitBtn) {
       submitBtn.addEventListener("click", () => {
         // Build composite key
@@ -922,8 +1052,14 @@ const openMenuModal = (dishId) => {
           sauce: selectedSauce,
         };
 
-        CartManager.addItem(cartItem);
-        closeModal(modal);
+        // Immediate tactile micro-interaction on button
+        submitBtn.classList.add("btn--added");
+        submitBtn.innerHTML = `<i class="ri-check-line"></i> Added to Cart!`;
+
+        setTimeout(() => {
+          CartManager.addItem(cartItem);
+          closeModal(modal);
+        }, 300);
       });
     }
   };
@@ -1101,78 +1237,91 @@ const openReservationModal = () => {
 
     if (!isValid) return;
 
-    // Format date nicely
-    const dateObj = new Date(dateVal + "T00:00:00");
-    const formattedDate = dateObj.toLocaleDateString("en-US", {
-      month: "long",
-      day: "numeric",
-      year: "numeric",
-    });
-
-    const resRef = `#RES-${Math.floor(1000 + Math.random() * 9000)}`;
-
-    // Show Confirmation State Card
-    modalBody.innerHTML = `
-      <div class="confirmation_state">
-        <div class="confirmation_badge">
-          <i class="ri-check-line"></i>
-        </div>
-        <h2 class="confirmation_title">Reservation Confirmed</h2>
-        <span class="confirmation_ref">Booking Ref: ${resRef}</span>
-
-        <div class="confirmation_box">
-          <div class="confirmation_row">
-            <span class="confirmation_row_label">Guest Name</span>
-            <span class="confirmation_row_val">${nameVal}</span>
-          </div>
-          <div class="confirmation_row">
-            <span class="confirmation_row_label">Date</span>
-            <span class="confirmation_row_val">${formattedDate}</span>
-          </div>
-          <div class="confirmation_row">
-            <span class="confirmation_row_label">Time</span>
-            <span class="confirmation_row_val">${timeSelect.value}</span>
-          </div>
-          <div class="confirmation_row">
-            <span class="confirmation_row_label">Party Size</span>
-            <span class="confirmation_row_val">${guestsSelect.value} Guests</span>
-          </div>
-          <div class="confirmation_row">
-            <span class="confirmation_row_label">Seating</span>
-            <span class="confirmation_row_val">${seatingSelect.value}</span>
-          </div>
-          <div class="confirmation_row">
-            <span class="confirmation_row_label">Status</span>
-            <span class="confirmation_row_val" style="color: hsl(140, 75%, 60%); font-weight: bold;">
-              &check; Request Successfully Submitted
-            </span>
-          </div>
-        </div>
-
-        <p class="confirmation_msg">
-          Thank you, ${nameVal}. Your table reservation request has been received. Our maître d' has noted your request.
-        </p>
-
-        <button type="button" class="button btn_confirmation_done" id="res-done-btn">
-          Done &bull; Return to Menu
-        </button>
-      </div>
-    `;
-
-    // Toast notification
-    showToast({
-      image: "./assets/img/favicon.png",
-      title: "Table Reserved",
-      message: `Confirmed for ${nameVal} on ${formattedDate}`,
-      quantity: parseInt(guestsSelect.value, 10),
-    });
-
-    const doneBtn = document.getElementById("res-done-btn");
-    if (doneBtn) {
-      doneBtn.addEventListener("click", () => {
-        closeModal(modal);
-      });
+    // Button loading state micro-interaction
+    const submitBtn = modalBody.querySelector(".btn_form_submit");
+    if (submitBtn) {
+      submitBtn.classList.add("btn--loading");
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = `<span class="btn_spinner"></span> Confirming Reservation...`;
     }
+
+    setTimeout(() => {
+      // Format date nicely
+      const dateObj = new Date(dateVal + "T00:00:00");
+      const formattedDate = dateObj.toLocaleDateString("en-US", {
+        month: "long",
+        day: "numeric",
+        year: "numeric",
+      });
+
+      const resRef = `#RES-${Math.floor(1000 + Math.random() * 9000)}`;
+
+      // Show Confirmation State Card with smooth entrance
+      modalBody.innerHTML = `
+        <div class="confirmation_state">
+          <div class="confirmation_badge">
+            <i class="ri-check-line"></i>
+          </div>
+          <h2 class="confirmation_title">Reservation Confirmed</h2>
+          <span class="confirmation_ref">Booking Ref: ${resRef}</span>
+
+          <div class="confirmation_box">
+            <div class="confirmation_row">
+              <span class="confirmation_row_label">Guest Name</span>
+              <span class="confirmation_row_val">${nameVal}</span>
+            </div>
+            <div class="confirmation_row">
+              <span class="confirmation_row_label">Date</span>
+              <span class="confirmation_row_val">${formattedDate}</span>
+            </div>
+            <div class="confirmation_row">
+              <span class="confirmation_row_label">Time</span>
+              <span class="confirmation_row_val">${timeSelect.value}</span>
+            </div>
+            <div class="confirmation_row">
+              <span class="confirmation_row_label">Party Size</span>
+              <span class="confirmation_row_val">${guestsSelect.value} Guests</span>
+            </div>
+            <div class="confirmation_row">
+              <span class="confirmation_row_label">Seating</span>
+              <span class="confirmation_row_val">${seatingSelect.value}</span>
+            </div>
+            <div class="confirmation_row">
+              <span class="confirmation_row_label">Status</span>
+              <span class="confirmation_row_val" style="color: hsl(140, 75%, 60%); font-weight: bold;">
+                &check; Request Successfully Submitted
+              </span>
+            </div>
+          </div>
+
+          <p class="confirmation_msg">
+            Thank you, ${nameVal}. Your table reservation request has been received. Our maître d' has noted your request.
+          </p>
+
+          <button type="button" class="button btn_confirmation_done" id="res-done-btn">
+            Done &bull; Return to Menu
+          </button>
+        </div>
+      `;
+
+      // Trigger Rainbow Confetti celebration!
+      launchRainbowConfetti();
+
+      // Toast notification
+      showToast({
+        image: "./assets/img/favicon.png",
+        title: "Table Reserved",
+        message: `Confirmed for ${nameVal} on ${formattedDate}`,
+        quantity: parseInt(guestsSelect.value, 10),
+      });
+
+      const doneBtn = document.getElementById("res-done-btn");
+      if (doneBtn) {
+        doneBtn.addEventListener("click", () => {
+          closeModal(modal);
+        });
+      }
+    }, 650);
   };
 
   renderForm();
@@ -1340,72 +1489,85 @@ const openCheckoutModal = () => {
 
     if (!isValid) return;
 
-    const orderNum = `#STK-${Math.floor(1000 + Math.random() * 9000)}`;
-
-    // Clear cart upon completion
-    CartManager.clearCart();
-
-    // Render Order Success State
-    modalBody.innerHTML = `
-      <div class="confirmation_state">
-        <div class="confirmation_badge">
-          <i class="ri-check-line"></i>
-        </div>
-        <h2 class="confirmation_title">Order Placed Successfully</h2>
-        <span class="confirmation_ref">Order ID: ${orderNum}</span>
-
-        <div class="confirmation_box">
-          <div class="confirmation_row">
-            <span class="confirmation_row_label">Customer</span>
-            <span class="confirmation_row_val">${nameVal}</span>
-          </div>
-          <div class="confirmation_row">
-            <span class="confirmation_row_label">Method</span>
-            <span class="confirmation_row_val">${deliveryType === "delivery" ? "Direct Delivery" : "Curbside Pickup"}</span>
-          </div>
-          ${
-            deliveryType === "delivery"
-              ? `
-            <div class="confirmation_row">
-              <span class="confirmation_row_label">Address</span>
-              <span class="confirmation_row_val">${addressVal}</span>
-            </div>
-          `
-              : ""
-          }
-          <div class="confirmation_row">
-            <span class="confirmation_row_label">Estimated Time</span>
-            <span class="confirmation_row_val">35 &ndash; 45 Minutes</span>
-          </div>
-          <div class="confirmation_row">
-            <span class="confirmation_row_label">Total Charged</span>
-            <span class="confirmation_row_val" style="color: var(--first-color); font-weight: bold;">$${grandTotal.toFixed(2)}</span>
-          </div>
-        </div>
-
-        <p class="confirmation_msg">
-          Thank you for your order, ${nameVal}. Our chefs are searing your cuts with care. You will receive an SMS update at ${phoneVal}.
-        </p>
-
-        <button type="button" class="button btn_confirmation_done" id="chk-done-btn">
-          Back to Restaurant
-        </button>
-      </div>
-    `;
-
-    showToast({
-      image: "./assets/img/menu-dish-2.png",
-      title: "Order Placed",
-      message: `${orderNum} confirmed for ${nameVal}`,
-      quantity: 1,
-    });
-
-    const doneBtn = document.getElementById("chk-done-btn");
-    if (doneBtn) {
-      doneBtn.addEventListener("click", () => {
-        closeModal(modal);
-      });
+    // Button loading state micro-interaction
+    const submitBtn = modalBody.querySelector(".btn_form_submit");
+    if (submitBtn) {
+      submitBtn.classList.add("btn--loading");
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = `<span class="btn_spinner"></span> Placing Order...`;
     }
+
+    setTimeout(() => {
+      const orderNum = `#STK-${Math.floor(1000 + Math.random() * 9000)}`;
+
+      // Clear cart upon completion
+      CartManager.clearCart();
+
+      // Render Order Success State with smooth entrance
+      modalBody.innerHTML = `
+        <div class="confirmation_state">
+          <div class="confirmation_badge">
+            <i class="ri-check-line"></i>
+          </div>
+          <h2 class="confirmation_title">Order Placed Successfully</h2>
+          <span class="confirmation_ref">Order ID: ${orderNum}</span>
+
+          <div class="confirmation_box">
+            <div class="confirmation_row">
+              <span class="confirmation_row_label">Customer</span>
+              <span class="confirmation_row_val">${nameVal}</span>
+            </div>
+            <div class="confirmation_row">
+              <span class="confirmation_row_label">Method</span>
+              <span class="confirmation_row_val">${deliveryType === "delivery" ? "Direct Delivery" : "Curbside Pickup"}</span>
+            </div>
+            ${
+              deliveryType === "delivery"
+                ? `
+              <div class="confirmation_row">
+                <span class="confirmation_row_label">Address</span>
+                <span class="confirmation_row_val">${addressVal}</span>
+              </div>
+            `
+                : ""
+            }
+            <div class="confirmation_row">
+              <span class="confirmation_row_label">Estimated Time</span>
+              <span class="confirmation_row_val">35 &ndash; 45 Minutes</span>
+            </div>
+            <div class="confirmation_row">
+              <span class="confirmation_row_label">Total Charged</span>
+              <span class="confirmation_row_val" style="color: var(--first-color); font-weight: bold;">$${grandTotal.toFixed(2)}</span>
+            </div>
+          </div>
+
+          <p class="confirmation_msg">
+            Thank you for your order, ${nameVal}. Our chefs are searing your cuts with care. You will receive an SMS update at ${phoneVal}.
+          </p>
+
+          <button type="button" class="button btn_confirmation_done" id="chk-done-btn">
+            Back to Restaurant
+          </button>
+        </div>
+      `;
+
+      // Trigger Rainbow Confetti celebration!
+      launchRainbowConfetti();
+
+      showToast({
+        image: "./assets/img/menu-dish-2.png",
+        title: "Order Placed",
+        message: `${orderNum} confirmed for ${nameVal}`,
+        quantity: 1,
+      });
+
+      const doneBtn = document.getElementById("chk-done-btn");
+      if (doneBtn) {
+        doneBtn.addEventListener("click", () => {
+          closeModal(modal);
+        });
+      }
+    }, 650);
   };
 
   renderCheckoutForm();

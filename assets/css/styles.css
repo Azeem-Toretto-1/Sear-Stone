@@ -308,10 +308,13 @@ img {
   border: 2px solid var(--white-color);
   padding: 1rem 2rem;
   font-weight: var(--font-semi-bold);
+  cursor: pointer;
   transition:
-    background-color 0.4s,
-    border-color 0.4s,
-    color 0.4s;
+    background-color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+    color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .button i {
@@ -323,6 +326,13 @@ img {
   border-color: var(--first-color);
   background-color: var(--first-color);
   color: var(--dark-color);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px hsla(30, 32%, 56%, 0.25);
+}
+
+.button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px hsla(30, 32%, 56%, 0.15);
 }
 
 .button_link {
@@ -1401,6 +1411,21 @@ body.light-theme .scrollup {
   padding: 2px;
 }
 
+.nav_cart_btn i {
+  display: inline-block;
+  transition: transform 0.25s ease;
+}
+
+.nav_cart_btn.cart-icon-bump i {
+  animation: cartIconPulse 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes cartIconPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.25) rotate(-10deg); color: var(--first-color); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
 .cart_badge {
   position: absolute;
   top: -6px;
@@ -1415,11 +1440,11 @@ body.light-theme .scrollup {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .cart_badge.badge-bump {
-  transform: scale(1.35);
+  transform: scale(1.4) !important;
 }
 
 /*========== Interactive Menu Extensions ==========*/
@@ -1976,12 +2001,21 @@ body.light-theme .custom_chip {
   color: var(--dark-color);
   font-size: 1rem;
   padding-block: 1rem;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .btn_modal_submit:hover {
   background-color: var(--first-color-alt);
   border-color: var(--first-color-alt);
   color: hsl(0, 0%, 98%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px hsla(30, 32%, 56%, 0.25);
+}
+
+.btn_modal_submit:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px hsla(30, 32%, 56%, 0.2);
 }
 
 /*========== Cart Side Drawer Architecture ==========*/
@@ -2108,6 +2142,13 @@ body.light-theme .cart_drawer {
   padding-bottom: 1.25rem;
   border-bottom: 1px solid hsla(0, 0%, 100%, 0.08);
   position: relative;
+  transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cart_item_card.item-removing {
+  opacity: 0 !important;
+  transform: translateX(35px) scale(0.92) !important;
+  pointer-events: none;
 }
 
 body.light-theme .cart_item_card {
@@ -2144,7 +2185,7 @@ body.light-theme .cart_item_card {
   color: hsla(0, 0%, 100%, 0.4);
   font-size: 1.15rem;
   cursor: pointer;
-  transition: color 0.25s;
+  transition: color 0.25s, transform 0.25s;
 }
 
 body.light-theme .cart_item_delete {
@@ -2153,6 +2194,7 @@ body.light-theme .cart_item_delete {
 
 .cart_item_delete:hover {
   color: hsl(0, 75%, 60%);
+  transform: scale(1.15);
 }
 
 .cart_item_customs {
@@ -2180,6 +2222,7 @@ body.light-theme .cart_item_delete {
   background-color: hsla(0, 0%, 100%, 0.05);
   border: 1px solid hsla(30, 32%, 56%, 0.3);
   padding: 2px 6px;
+  border-radius: 2px;
 }
 
 .cart_item_btn {
@@ -2190,10 +2233,16 @@ body.light-theme .cart_item_delete {
   place-items: center;
   width: 20px;
   height: 20px;
+  transition: color 0.2s, transform 0.2s;
 }
 
 .cart_item_btn:hover {
   color: var(--first-color);
+  transform: scale(1.2);
+}
+
+.cart_item_btn:active {
+  transform: scale(0.95);
 }
 
 .cart_item_qty_num {
@@ -2201,6 +2250,13 @@ body.light-theme .cart_item_delete {
   font-weight: var(--font-semi-bold);
   min-width: 16px;
   text-align: center;
+  display: inline-block;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.2s ease;
+}
+
+.cart_item_qty_num.qty-bump {
+  transform: scale(1.3);
+  color: var(--first-color);
 }
 
 .cart_item_subtotal {
@@ -2261,6 +2317,7 @@ body.light-theme .cart_total_line {
   border-color: hsla(0, 0%, 100%, 0.3);
   color: var(--white-color);
   justify-content: center;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 body.light-theme .btn_clear_cart {
@@ -2271,6 +2328,11 @@ body.light-theme .btn_clear_cart {
   background-color: hsla(0, 75%, 60%, 0.15);
   border-color: hsl(0, 75%, 60%);
   color: hsl(0, 75%, 65%);
+  transform: translateY(-1px);
+}
+
+.btn_clear_cart:active {
+  transform: translateY(0);
 }
 
 .btn_checkout_cart {
@@ -2281,12 +2343,20 @@ body.light-theme .btn_clear_cart {
   border-color: var(--first-color);
   color: var(--dark-color);
   justify-content: center;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .btn_checkout_cart:hover {
   background-color: var(--first-color-alt);
   border-color: var(--first-color-alt);
   color: hsl(0, 0%, 98%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px hsla(30, 32%, 56%, 0.25);
+}
+
+.btn_checkout_cart:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px hsla(30, 32%, 56%, 0.2);
 }
 
 /*========== Forms (Reservation & Checkout) ==========*/
@@ -2338,6 +2408,51 @@ body.light-theme .btn_clear_cart {
   color: var(--first-color);
 }
 
+/*========== Browser Autofill Styling Fix ==========*/
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 1000px hsl(0, 0%, 10%) inset !important;
+  -webkit-text-fill-color: var(--white-color) !important;
+  caret-color: var(--white-color) !important;
+  border-color: hsla(0, 0%, 100%, 0.18) !important;
+  font-family: var(--body-font) !important;
+  font-size: var(--small-font-size) !important;
+  transition: background-color 5000s ease-in-out 0s, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+input:-webkit-autofill:focus,
+select:-webkit-autofill:focus,
+textarea:-webkit-autofill:focus {
+  border-color: var(--first-color) !important;
+  -webkit-box-shadow: 0 0 0 1000px hsl(0, 0%, 11%) inset, 0 0 0 3px hsla(30, 32%, 56%, 0.18) !important;
+}
+
+body.light-theme input:-webkit-autofill,
+body.light-theme input:-webkit-autofill:hover,
+body.light-theme input:-webkit-autofill:focus,
+body.light-theme select:-webkit-autofill,
+body.light-theme textarea:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px hsl(30, 20%, 95%) inset !important;
+  -webkit-text-fill-color: hsl(0, 0%, 12%) !important;
+  caret-color: hsl(0, 0%, 12%) !important;
+  border-color: hsla(0, 0%, 0%, 0.18) !important;
+}
+
+body.light-theme input:-webkit-autofill:focus,
+body.light-theme select:-webkit-autofill:focus,
+body.light-theme textarea:-webkit-autofill:focus {
+  border-color: var(--first-color) !important;
+  -webkit-box-shadow: 0 0 0 1000px hsl(30, 20%, 96%) inset, 0 0 0 3px hsla(30, 48%, 42%, 0.18) !important;
+}
+
 .form_input,
 .form_select,
 .form_textarea {
@@ -2347,7 +2462,7 @@ body.light-theme .btn_clear_cart {
   padding: 0.75rem 0.9rem;
   font-family: var(--body-font);
   font-size: var(--small-font-size);
-  transition: border-color 0.3s, background-color 0.3s;
+  transition: border-color 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
   width: 100%;
 }
 
@@ -2364,12 +2479,20 @@ body.light-theme .form_textarea {
 .form_textarea:focus {
   border-color: var(--first-color);
   background-color: hsla(0, 0%, 100%, 0.08);
+  box-shadow: 0 0 0 3px hsla(30, 32%, 56%, 0.18);
+}
+
+body.light-theme .form_input:focus,
+body.light-theme .form_select:focus,
+body.light-theme .form_textarea:focus {
+  box-shadow: 0 0 0 3px hsla(30, 48%, 42%, 0.18);
 }
 
 .form_input.has-error,
 .form_select.has-error,
 .form_textarea.has-error {
   border-color: hsl(0, 75%, 60%);
+  box-shadow: 0 0 0 2px hsla(0, 75%, 60%, 0.2);
 }
 
 .form_error_text {
@@ -2381,6 +2504,12 @@ body.light-theme .form_textarea {
 
 .form_error_text.show-error {
   display: block;
+  animation: errorFadeIn 0.25s ease;
+}
+
+@keyframes errorFadeIn {
+  from { opacity: 0; transform: translateY(-3px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .form_select option {
@@ -2411,7 +2540,7 @@ body.light-theme .form_select option {
   font-size: var(--small-font-size);
   cursor: pointer;
   text-align: center;
-  transition: all 0.25s;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 body.light-theme .delivery_toggle_btn {
@@ -2423,6 +2552,12 @@ body.light-theme .delivery_toggle_btn {
   border-color: var(--first-color);
   color: var(--dark-color);
   font-weight: var(--font-semi-bold);
+  box-shadow: 0 4px 12px hsla(30, 32%, 56%, 0.2);
+}
+
+.delivery_toggle_btn:hover:not(.active) {
+  border-color: var(--first-color);
+  color: var(--first-color);
 }
 
 .form_actions {
@@ -2437,12 +2572,62 @@ body.light-theme .delivery_toggle_btn {
   color: var(--dark-color);
   padding: 1rem;
   font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .btn_form_submit:hover {
   background-color: var(--first-color-alt);
   border-color: var(--first-color-alt);
   color: hsl(0, 0%, 98%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px hsla(30, 32%, 56%, 0.28);
+}
+
+.btn_form_submit:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px hsla(30, 32%, 56%, 0.2);
+}
+
+/* Button Loading State */
+.btn--loading {
+  pointer-events: none;
+  opacity: 0.88;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+}
+
+.btn_spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid hsla(0, 0%, 10%, 0.3);
+  border-top-color: var(--dark-color);
+  border-radius: 50%;
+  animation: btnSpin 0.75s linear infinite;
+  display: inline-block;
+}
+
+body.light-theme .btn_spinner {
+  border-color: hsla(0, 0%, 100%, 0.3);
+  border-top-color: hsl(0, 0%, 98%);
+}
+
+@keyframes btnSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Button Added State */
+.btn--added {
+  background-color: hsl(140, 60%, 42%) !important;
+  border-color: hsl(140, 60%, 42%) !important;
+  color: #fff !important;
+  transform: scale(1.02);
+  box-shadow: 0 6px 20px hsla(140, 60%, 42%, 0.35) !important;
 }
 
 /*========== Confirmation States ==========*/
@@ -2452,11 +2637,23 @@ body.light-theme .delivery_toggle_btn {
   display: flex;
   flex-direction: column;
   align-items: center;
+  animation: successEntrance 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes successEntrance {
+  0% {
+    opacity: 0;
+    transform: translateY(16px) scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 .confirmation_badge {
-  width: 64px;
-  height: 64px;
+  width: 68px;
+  height: 68px;
   border-radius: 50%;
   background-color: hsla(30, 32%, 56%, 0.15);
   border: 2px solid var(--first-color);
@@ -2465,6 +2662,18 @@ body.light-theme .delivery_toggle_btn {
   display: grid;
   place-items: center;
   margin-bottom: 1.25rem;
+  animation: badgePop 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) 0.08s both;
+}
+
+@keyframes badgePop {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 .confirmation_title {
@@ -2491,6 +2700,7 @@ body.light-theme .delivery_toggle_btn {
   row-gap: 0.65rem;
   text-align: left;
   margin-bottom: 1.5rem;
+  border-radius: 2px;
 }
 
 .confirmation_row {
@@ -2535,6 +2745,16 @@ body.light-theme .confirmation_msg {
 .btn_confirmation_done {
   min-width: 200px;
   justify-content: center;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn_confirmation_done:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px hsla(30, 32%, 56%, 0.25);
+}
+
+.btn_confirmation_done:active {
+  transform: translateY(0);
 }
 
 /*========== Toast Notifications ==========*/
