@@ -2,6 +2,44 @@
   UI JS - Modals, Toasts, Confetti & Scroll Helpers
 ==================================================*/
 
+/*========== DARK / LIGHT THEME TOGGLE ==========*/
+export const initThemeToggle = () => {
+  const themeButton = document.getElementById("theme-button");
+  const themeIcon = document.getElementById("theme-icon");
+  const themeKey = "steakhouse_theme";
+
+  const setTheme = (theme) => {
+    if (theme === "light") {
+      document.body.classList.add("light-theme");
+      if (themeIcon) {
+        themeIcon.classList.remove("ri-sun-line");
+        themeIcon.classList.add("ri-moon-line");
+      }
+    } else {
+      document.body.classList.remove("light-theme");
+      if (themeIcon) {
+        themeIcon.classList.remove("ri-moon-line");
+        themeIcon.classList.add("ri-sun-line");
+      }
+    }
+  };
+
+  // Check saved preference
+  const savedTheme = localStorage.getItem(themeKey);
+  if (savedTheme) {
+    setTheme(savedTheme);
+  }
+
+  if (themeButton) {
+    themeButton.addEventListener("click", () => {
+      const isLight = document.body.classList.toggle("light-theme");
+      const current = isLight ? "light" : "dark";
+      localStorage.setItem(themeKey, current);
+      setTheme(current);
+    });
+  }
+};
+
 /*========== MODAL & SCROLL LOCK HELPERS ==========*/
 export const openModal = (modalEl) => {
   if (!modalEl) return;

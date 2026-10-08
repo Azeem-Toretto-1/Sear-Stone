@@ -4,7 +4,12 @@
 
 import { initPageLoader } from "./loader.js";
 import { initNavigation } from "./navigation.js";
-import { initScrollProgress, initScrollUp, closeModal } from "./ui.js";
+import {
+  initScrollProgress,
+  initScrollUp,
+  closeModal,
+  initThemeToggle,
+} from "./ui.js";
 import { initMenu } from "./menu.js";
 import { initCart, closeCartDrawer } from "./cart.js";
 import { initCheckout } from "./checkout.js";
@@ -97,6 +102,7 @@ const initScrollRevealAnimations = () => {
 /*========== Application Initialization ==========*/
 const initApp = () => {
   initPageLoader();
+  initThemeToggle();
   initNavigation();
   initScrollProgress();
   initScrollUp();

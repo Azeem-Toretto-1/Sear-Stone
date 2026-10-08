@@ -10,7 +10,7 @@
   left: 0;
   background-color: var(--body-color);
   z-index: var(--z-fixed);
-  transition: box-shadow 0.4s;
+  transition: box-shadow 0.4s, background-color 0.4s;
 }
 
 body.light-theme .header {

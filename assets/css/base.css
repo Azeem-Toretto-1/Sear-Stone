@@ -58,6 +58,7 @@ button {
 body {
   background-color: var(--body-color);
   color: var(--white-color);
+  transition: background-color 0.4s, color 0.4s;
 }
 
 input,
